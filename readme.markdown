@@ -10,6 +10,58 @@ $ npm install postcss-extend
 
 ## Example
 
+```js
+// dependencies
+var fs = require("fs")
+var postcss = require("postcss")
+var extend = require("postcss-extend")
+
+// css to be processed
+var css = fs.readFileSync("input.css", "utf8")
+
+// process css
+var output = postcss()
+  .use(constant(css))
+  .process(css)
+  .css
+```
+
+Using thi `input.css`:
+
+```css
+.base {
+  /*
+   * @base true
+   */
+  font-size: 12px;
+}
+
+.foo {
+  /*
+   * @extend .base
+   */
+  padding: 10px;
+}
+```
+
+You will get:
+
+```css
+.foo {
+  /*
+   * @base true
+   */
+  font-size: 12px;
+}
+
+.foo {
+  /*
+   * @extend .base
+   */
+  padding: 10px;
+}
+```
+
 ## License
 
 The MIT License (MIT)
