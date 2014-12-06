@@ -1,0 +1,13 @@
+.base {
+  /*
+   * @base true
+   */
+  font-size: 12px;
+}
+
+.foo {
+  /*
+   * @extend .base
+   */
+  padding: 10px;
+}

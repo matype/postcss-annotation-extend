@@ -1,7 +1,7 @@
 {
   "name": "postcss-extend",
   "version": "0.0.1",
-  "description": "PostCSS plugin for the inherit rules from other selectors",
+  "description": "PostCSS plugin for the annotation based inheritance of other rule set",
   "main": "index.js",
   "scripts": {
     "test": "tape test"
@@ -10,10 +10,21 @@
     "type": "git",
     "url": "git://github.com/morishitter/postcss-extend/git"
   },
-  "keywords": ["postcss","postcss-plugins","css","inherit","extend"],
+  "keywords": [
+    "postcss",
+    "postcss-plugins",
+    "css",
+    "inherit",
+    "extend"
+  ],
   "author": "Masaaki Morishita",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "css-annotation": "^0.2.0"
+  },
   "devDependencies": {
+    "tape": "^3.0.3",
+    "tap": "^0.4.13",
+    "postcss": "^3.0.5"
   }
 }

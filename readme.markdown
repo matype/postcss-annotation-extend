@@ -1,6 +1,6 @@
 # postcss-extend [![Build Status](https://travis-ci.org/morishitter/postcss-extend.svg)](https://travis-ci.org/morishitter/postcss-extend)
 
-PostCSS plugin for the inherit rules from other selectors
+PostCSS plugin for the annotation based inheritance of other rule set
 
 ## Installation
 
