@@ -23,8 +23,16 @@ module.exports = function plugin (css, options) {
 
         root.eachRule(function (node) {
             matchedRules.forEach(function (matchedRule) {
-                if (node.selector === matchedRule.base) {
-                    node.selector = matchedRule.extend
+                if (Array.isArray(matchedRule.base)) {
+                    matchedRule.base.forEach(function (base) {
+                        if (node.selector === base) {
+                            node.selector = matchedRule.extend
+                        }
+                    })
+                } else {
+                    if (node.selector === matchedRule.base) {
+                        node.selector = matchedRule.extend
+                    }
                 }
             })
         })

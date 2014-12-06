@@ -29,18 +29,25 @@ var output = postcss()
 Using thi `input.css`:
 
 ```css
-.base {
+.base-1 {
   /*
-   * @base true
+   * @base
    */
   font-size: 12px;
 }
 
+.base-2 {
+  /*
+   * @base
+   */
+  color: red;
+}
+
 .foo {
   /*
-   * @extend .base
+   * @extend .base-1, .base-2
    */
-  padding: 10px;
+   padding: 10px;
 }
 ```
 
@@ -49,16 +56,23 @@ You will get:
 ```css
 .foo {
   /*
-   * @base true
+   * @base
    */
   font-size: 12px;
 }
 
 .foo {
   /*
-   * @extend .base
+   * @base
    */
-  padding: 10px;
+  color: red;
+}
+
+.foo {
+  /*
+   * @extend .base-1, .base-2
+   */
+   padding: 10px;
 }
 ```
 
