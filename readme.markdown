@@ -1,6 +1,6 @@
 # postcss-extend [![Build Status](https://travis-ci.org/morishitter/postcss-extend.svg)](https://travis-ci.org/morishitter/postcss-extend)
 
-PostCSS plugin for the annotation based inheritance of other rule set
+PostCSS plugin for annotations based inheritance from other rule sets
 
 ## Installation
 
@@ -11,15 +11,15 @@ $ npm install postcss-extend
 ## Example
 
 ```js
-// dependencies
+// Dependencies
 var fs = require("fs")
 var postcss = require("postcss")
 var extend = require("postcss-extend")
 
-// css to be processed
+// CSS to be processed
 var css = fs.readFileSync("input.css", "utf8")
 
-// process css
+// Process css
 var output = postcss()
   .use(extend(css))
   .process(css)
@@ -49,12 +49,19 @@ Using this `input.css`:
    */
    padding: 10px;
 }
+
+.bar {
+  /*
+   * @extend .base-1
+   */
+   margin: 10px;
+}
 ```
 
 You will get:
 
 ```css
-.foo {
+.foo, .base {
   /*
    * @base
    */
@@ -73,6 +80,13 @@ You will get:
    * @extend .base-1, .base-2
    */
    padding: 10px;
+}
+
+.bar {
+  /*
+   * @extend .base-1
+   */
+   margin: 10px;
 }
 ```
 
