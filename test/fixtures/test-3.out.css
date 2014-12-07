@@ -1,0 +1,21 @@
+.foo, .bar {
+  /*
+   * @base
+   */
+  font-size: 12px;
+}
+
+.foo {
+  /*
+   * @extend .base
+   */
+  color: red;
+}
+
+.bar {
+  /*
+   * @extend .base
+   */
+  padding: 10px;
+}
+

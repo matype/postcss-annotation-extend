@@ -22,3 +22,9 @@ test('test-2', function (t) {
     t.same(res, output('test-2'))
     t.end()
 })
+
+test('test-3', function (t) {
+    var res = postcss().use(extend(fixture('test-3'))).process(fixture('test-3')).css.trim()
+    t.same(res, output('test-3'))
+    t.end()
+})

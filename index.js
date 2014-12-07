@@ -21,6 +21,39 @@ module.exports = function plugin (css, options) {
             }
         })
 
+        var newMatched = []
+        matchedRules.forEach(function (matchedRule, i) {
+            var deleteFlag = false
+            var sels = []
+            for (var j = i + 1; j < matchedRules.length; j++) {
+                var count = false;
+                if (matchedRule.base === matchedRules[j].base) {
+                    if (!count) sels.push(matchedRule.extend)
+                    sels.push(matchedRules[j].extend)
+                    count = true
+                    deleteFlag = true
+                }
+            }
+            if (deleteFlag) {
+                for (var k = 0; k < matchedRules.length; k++) {
+                    if (matchedRules[k].base === matchedRule.base) {
+                        matchedRules.splice(k, 1)
+                    }
+                }
+                var newSelector = sels.join(', ')
+                newMatched.push({
+                    extend: newSelector,
+                    base: matchedRule.base
+                })
+            } else {
+                newMatched.push({
+                    extend: matchedRule.extend,
+                    base: matchedRule.base
+                })
+            }
+        })
+        matchedRules = newMatched
+
         root.eachRule(function (node) {
             matchedRules.forEach(function (matchedRule) {
                 if (Array.isArray(matchedRule.base)) {
