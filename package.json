@@ -1,7 +1,7 @@
 {
   "name": "postcss-extend",
-  "version": "0.1.1",
-  "description": "PostCSS plugin for the annotation based inheritance of other rule set",
+  "version": "0.1.2",
+  "description": "PostCSS plugin for annotations based inheritance from other rule sets",
   "main": "index.js",
   "scripts": {
     "test": "tape test"
