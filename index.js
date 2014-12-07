@@ -40,7 +40,7 @@ module.exports = function plugin (css, options) {
                         matchedRules.splice(k, 1)
                     }
                 }
-                var newSelector = sels.join(', ')
+                var newSelector = sels.join(',\n')
                 newMatched.push({
                     extend: newSelector,
                     base: matchedRule.base
