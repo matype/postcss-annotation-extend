@@ -61,7 +61,8 @@ Using this `input.css`:
 You will get:
 
 ```css
-.foo, .base {
+.foo,
+.bar {
   /*
    * @base
    */

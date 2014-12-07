@@ -14,6 +14,9 @@ module.exports = function plugin (css, options) {
                     if (node.selector === annotation.rule) {
                         var res = {}
                         res.extend = node.selector
+                        if (!Array.isArray(annotation.extend)) {
+                            annotation.extend = [annotation.extend]
+                        }
                         res.base = annotation.extend
                         matchedRules.push(res)
                     }
@@ -21,34 +24,40 @@ module.exports = function plugin (css, options) {
             }
         })
 
+        var tmpMatched = []
         var newMatched = []
-        matchedRules.forEach(function (matchedRule, i) {
-            var deleteFlag = false
-            var sels = []
-            for (var j = i + 1; j < matchedRules.length; j++) {
-                var count = false;
-                if (matchedRule.base === matchedRules[j].base) {
-                    if (!count) sels.push(matchedRule.extend)
-                    sels.push(matchedRules[j].extend)
-                    count = true
-                    deleteFlag = true
+        matchedRules.forEach(function (matchedRule) {
+            matchedRule.base.forEach(function (base) {
+                tmpMatched.push({
+                    extend: matchedRule.extend,
+                    base: base
+                })
+            })
+        })
+        tmpMatched.forEach(function (tmp, i) {
+            var tmpSelectors = []
+            var count = true
+            var isOne = true
+            for (var j = i + 1; j < tmpMatched.length; j++) {
+                if (tmp.base === tmpMatched[j].base) {
+                    if (count) tmpSelectors.push(tmp.extend)
+                    tmpSelectors.push(tmpMatched[j].extend)
+                    count = false
+                    isOne = false
+                    tmpMatched.splice(j, 1)
                 }
             }
-            if (deleteFlag) {
-                for (var k = 0; k < matchedRules.length; k++) {
-                    if (matchedRules[k].base === matchedRule.base) {
-                        matchedRules.splice(k, 1)
-                    }
-                }
-                var newSelector = sels.join(',\n')
+            var newSelector  = tmpSelectors.join(',\n')
+            if (newSelector) {
                 newMatched.push({
                     extend: newSelector,
-                    base: matchedRule.base
+                    base: tmp.base
                 })
-            } else {
+            }
+            if (isOne) {
                 newMatched.push({
-                    extend: matchedRule.extend,
-                    base: matchedRule.base
+                    extend: tmp.extend,
+                    base: tmp.base
                 })
             }
         })
