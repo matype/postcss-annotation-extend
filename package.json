@@ -1,6 +1,6 @@
 {
   "name": "postcss-extend",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "PostCSS plugin for annotations based inheritance from other rule sets",
   "main": "index.js",
   "scripts": {
