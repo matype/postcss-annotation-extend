@@ -1,0 +1,21 @@
+.baz {
+  /*
+   * @base
+   */
+  color: red;
+}
+
+.baz {
+  /*
+   * @base
+   * @extend .foo
+   */
+  font-size:12px;
+}
+
+.baz {
+  /*
+   * @extend .bar
+   */
+}
+
