@@ -69,11 +69,13 @@ module.exports = function plugin (css, options) {
                     matchedRule.base.forEach(function (base) {
                         if (node.selector === base) {
                             node.selector = matchedRule.extend
+                            node.change = true;
                         }
                     })
                 } else {
                     if (node.selector === matchedRule.base) {
                         node.selector = matchedRule.extend
+                        node.change = true;
                     }
                 }
             })
