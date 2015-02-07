@@ -87,8 +87,8 @@ module.exports = function plugin (css, options) {
 }
 
 function checkBaseRule (node) {
-    if (node.childs) {
-        var children = node.childs
+    if (node.nodes) {
+        var children = node.nodes
         var text = ''
         children.forEach(function (child) {
             if (child.type === 'comment') text = child.text
@@ -99,8 +99,8 @@ function checkBaseRule (node) {
 }
 
 function checkExtend (node) {
-    if (node.childs) {
-        var children = node.childs
+    if (node.nodes) {
+        var children = node.nodes
         var text = ''
         children.forEach(function (child) {
             if (child.type === 'comment') text = child.text

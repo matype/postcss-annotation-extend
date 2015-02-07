@@ -20,11 +20,11 @@
   "author": "Masaaki Morishita",
   "license": "MIT",
   "dependencies": {
-    "css-annotation": "^0.2.2"
+    "css-annotation": "^0.3.0"
   },
   "devDependencies": {
-    "tape": "^3.0.3",
+    "postcss": "^4.0.3",
     "tap": "^0.4.13",
-    "postcss": "^3.0.6"
+    "tape": "^3.0.3"
   }
 }
