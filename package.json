@@ -1,6 +1,6 @@
 {
   "name": "postcss-annotation-extend",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "PostCSS plugin for annotations based inheritance from other rule sets",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "css-annotation": "^0.3.0"
   },
   "devDependencies": {
-    "postcss": "^4.0.3",
+    "postcss": "^4.1.16",
     "tap": "^0.4.13",
     "tape": "^3.0.3"
   }
