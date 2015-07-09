@@ -1,5 +1,5 @@
 {
-  "name": "postcss-extend",
+  "name": "postcss-annotation-extend",
   "version": "0.3.0",
   "description": "PostCSS plugin for annotations based inheritance from other rule sets",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/morishitter/postcss-extend/git"
+    "url": "git://github.com/morishitter/postcss-annotation-extend/git"
   },
   "keywords": [
     "postcss",

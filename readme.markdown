@@ -1,11 +1,11 @@
-# postcss-extend [![Build Status](https://travis-ci.org/morishitter/postcss-extend.svg)](https://travis-ci.org/morishitter/postcss-extend)
+# postcss-extend [![Build Status](https://travis-ci.org/morishitter/postcss-annotation-extend.svg)](https://travis-ci.org/morishitter/postcss-annotation-extend)
 
 PostCSS plugin for annotations based inheritance from other rule sets
 
 ## Installation
 
 ```shell
-$ npm install postcss-extend
+$ npm install postcss-annotation-extend
 ```
 
 ## Example
@@ -14,7 +14,7 @@ $ npm install postcss-extend
 // Dependencies
 var fs = require("fs")
 var postcss = require("postcss")
-var extend = require("postcss-extend")
+var extend = require("postcss-annotation-extend")
 
 // CSS to be processed
 var css = fs.readFileSync("input.css", "utf8")
