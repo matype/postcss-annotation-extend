@@ -1,4 +1,4 @@
-# postcss-extend [![Build Status](https://travis-ci.org/morishitter/postcss-annotation-extend.svg)](https://travis-ci.org/morishitter/postcss-annotation-extend)
+# postcss-annotation-extend [![Build Status](https://travis-ci.org/morishitter/postcss-annotation-extend.svg)](https://travis-ci.org/morishitter/postcss-annotation-extend)
 
 PostCSS plugin for annotations based inheritance from other rule sets
 
