@@ -21,7 +21,7 @@ var css = fs.readFileSync("input.css", "utf8")
 
 // Process css
 var output = postcss()
-  .use(extend(css))
+  .use(extend({src: css}))
   .process(css)
   .css
 ```

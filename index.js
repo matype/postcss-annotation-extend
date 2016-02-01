@@ -1,14 +1,13 @@
 var parse = require('css-annotation').parse
 
-module.exports = function plugin (css, options) {
+module.exports = function (options) {
     options = options || {}
-
-    var annotations = parse(css)
+    var annotations = parse(options.src)
 
     return function (root) {
         var matchedRules = []
 
-        root.eachRule(function (node) {
+        root.walkRules(function (node) {
             if (checkExtend(node)) {
                 annotations.forEach(function (annotation) {
                     if (node.selector === annotation.rule) {
@@ -63,7 +62,7 @@ module.exports = function plugin (css, options) {
         })
         matchedRules = newMatched
 
-        root.eachRule(function (node) {
+        root.walkRules(function (node) {
             matchedRules.forEach(function (matchedRule) {
                 if (Array.isArray(matchedRule.base)) {
                     matchedRule.base.forEach(function (base) {
